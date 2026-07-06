@@ -1,0 +1,89 @@
+/* Shared decoration for the menu pages */
+body {
+    font-family: "Segoe UI", "Sarabun", system-ui, sans-serif;
+    margin: 0;
+    padding: 2rem;
+    color: #2d2a26;
+    background: #1c1a17;
+    min-height: 100vh;
+}
+
+h1 {
+    text-align: center;
+    margin: 0 0 1.5rem;
+    font-size: 2.8rem;
+    font-weight: 900;
+    letter-spacing: 1px;
+    color: #fff;
+    text-transform: uppercase;
+    text-shadow: 0 3px 0 #cf865b, 0 6px 18px rgba(0, 0, 0, .35);
+}
+
+table {
+    border-collapse: collapse;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, .3);
+    border: 4px solid #2d2a26;
+}
+
+th {
+    background: #2d2a26;
+    color: #cf865b;
+    padding: 1rem 1.3rem;
+    letter-spacing: 1px;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+td {
+    padding: .85rem 1.3rem;
+    border-top: 2px solid #f0e3d6;
+    font-weight: 600;
+}
+
+tbody tr:nth-child(even),
+tr:nth-child(even) {
+    background: #fdf4ec;
+}
+
+tr:hover td {
+    background: #fff2d9;
+}
+
+img {
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, .15);
+    display: block;
+}
+
+a {
+    display: inline-block;
+    margin: 1.5rem auto 0;
+    padding: .85rem 2rem;
+    text-align: center;
+    text-decoration: none;
+    color: #2d2a26;
+    background: #ffd23f;
+    border: 3px solid #2d2a26;
+    border-radius: 999px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+    box-shadow: 0 6px 0 #2d2a26;
+    transition: transform .12s ease, box-shadow .12s ease;
+}
+
+a:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 9px 0 #2d2a26;
+}
+
+/* center the trailing back/next link */
+body > a {
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+}
