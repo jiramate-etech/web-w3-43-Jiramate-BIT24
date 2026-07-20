@@ -7,8 +7,16 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <header class="site-header">
+        <div class="brand">KFC Menu</div>
+        <nav class="site-nav">
+            <a href="index.php">หน้าหลัก</a>
+            <a href="manage_menu.php">จัดการเมนู</a>
+            <a href="menu_type.php" class="active">ประเภทเมนู</a>
+        </nav>
+    </header>
     <h1>ประเภทเมนู</h1>
-    <?php 
+    <?php
         // แสดง error
 
         // Report all PHP errors
@@ -28,23 +36,30 @@
         // var_dump($result);
     ?>
 
-    <table border=1>
+    <table>
         <thead>
             <th>รหัสประเภท</th>
             <th>ชื่อประเภท</th>
         </thead>
-        <?php 
+        <?php
             foreach($result as $menu){
         ?>
         <tr>
             <td><?= $menu["type_id"]?></td>
             <td><?= $menu["type_name"]?></td>
         </tr>
-        <?php 
+        <?php
         };
     ?>
     </table>
 
-    <a href="index.php">กลับไปยังหน้าเมนู</a>
+    <footer class="site-footer">
+        <nav class="footer-links">
+            <a href="index.php">หน้าหลัก</a>
+            <a href="manage_menu.php">จัดการเมนู</a>
+            <a href="menu_type.php">ประเภทเมนู</a>
+        </nav>
+        <p class="credit">จัดทำโดย <strong>Sun</strong> &middot; &copy; <?= date("Y") ?> KFC Menu</p>
+    </footer>
 </body>
 </html>

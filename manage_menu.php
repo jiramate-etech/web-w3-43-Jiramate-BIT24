@@ -3,38 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>เมนู</title>
+    <title>จัดการเมนู</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header class="site-header">
         <div class="brand">KFC Menu</div>
         <nav class="site-nav">
-            <a href="index.php" class="active">หน้าหลัก</a>
-            <a href="manage_menu.php">จัดการเมนู</a>
+            <a href="index.php">หน้าหลัก</a>
+            <a href="manage_menu.php" class="active">จัดการเมนู</a>
             <a href="menu_type.php">ประเภทเมนู</a>
         </nav>
     </header>
-    <h1>เมนูอาหาร</h1>
+    <h1>จัดการเมนู</h1>
     <?php
-        // แสดง error
-
-        // Report all PHP errors
         error_reporting(E_ALL);
-
-        // Force errors to be displayed on the screen
         ini_set('display_errors', 1);
         ini_set('display_startup_errors', 1); 
 
         include "action/connect.php";
 
-        // เลือก(ดึง) ข้อมูลทั้งหมด จาก ตาราง menus
         $sql = "SELECT * FROM menus";
-        //                     ที่อยู่ฐาน , Query
         $result = mysqli_query($con, $sql);
-        // ทดสอบ
-        // var_dump($result);
     ?>
+
+    <div class="table-top">
+        <a class="btn btn-edit" href="add_menu.php">+ เพิ่มเมนูใหม่</a>
+    </div>
 
     <table>
         <thead>
@@ -43,6 +38,7 @@
             <th>ราคา</th>
             <th>ภาพ</th>
             <th>ประเภท</th>
+            <th>จัดการ</th>
         </thead>
         <?php
             foreach($result as $menu){
@@ -55,6 +51,14 @@
                         <img src="<?= $menu["menu_image"] ?>" alt="">
                     </td>
                     <td><?= $menu["type_id"] ?></td>
+                    <td>
+                        <div class="row-actions">
+                            <!-- edit -->
+                            <a class="btn btn-edit" href="edit_menu.php?id=<?= $menu["menu_id"] ?>">แก้ไข</a>
+                            <!-- delete -->
+                            <a class="btn btn-del" href="action/delete_menu.php?id=<?= $menu["menu_id"] ?>">ลบ</a>
+                        </div>
+                    </td>
                 </tr>
                 <?php
             };
